@@ -1,97 +1,296 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RateMyBuy – Bewerte deine Käufe mit Freunden</title>
-  <meta name="description" content="RateMyBuy ist eine Social-Media-App, mit der du Käufe teilen und von Freunden auf einer Skala von 1 bis 10 bewerten lassen kannst.">
-  <link rel="icon" href="favicon.ico">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f9fafb;
-      color: #111;
-      line-height: 1.6;
-    }
-    header {
-      background: #111827;
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    main {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-      background: white;
-      padding: 1.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    }
-    h2 {
-      color: #111827;
-    }
-    footer {
-      background: #111827;
-      color: #ccc;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-    a {
-      color: #2563eb;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RateMyBuy - Bewerte deine Käufe mit Freunden. Eine App von Klemp & Röder GbR">
+    <title>RateMyBuy - Bewerte deine Käufe mit Freunden</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .app-stores {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .store-badge {
+            display: inline-block;
+            height: 50px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        .store-badge:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        
+        .store-badge img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .back-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: #5568d3;
+        }
+        
+        .back-link::before {
+            content: "← ";
+        }
+        
+        .link-section {
+            margin-top: 1.5rem;
+        }
+        
+        .link-section a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .link-section a:hover {
+            color: #5568d3;
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-top: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            .section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+            
+            .store-badge {
+                height: 45px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>RateMyBuy</h1>
-    <p>Bewerte deine Käufe mit Freunden – von 1 bis 10!</p>
-  </header>
-  <main>
-    <section>
-      <h2>Über die App</h2>
-      <p>
-        <strong>RateMyBuy</strong> ist eine Social-Media-App, mit der du deine Käufe oder Entdeckungen mit Freunden teilen kannst.
-        Andere Nutzer können deine Posts ("Buys") bewerten, kommentieren und Inspiration für eigene Käufe finden.
-      </p>
-      <p>Mach mit und finde heraus, welche Buys wirklich „10/10" sind!</p>
-    </section>
-    <section>
-      <h2>Kontakt</h2>
-      <p>Für Support, Feedback oder Anfragen:</p>
-      <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.com">support@klemp-roeder.com</a></p>
-    </section>
-    <section>
-      <h2>Datenschutz</h2>
-      <p>
-        RateMyBuy legt Wert auf den Schutz deiner Daten. Persönliche Informationen werden ausschließlich im Rahmen der App-Funktionalität verarbeitet.
-      </p>
-      <p>Weitere Informationen findest du in unserer <a href="/RateMyBuy/privacy-policy-de">Datenschutzerklärung (DE)</a> / <a href="privacy-policy">Privacy policy (EN)</a>.</p>
-      <p>Content-Richtlinien und Nutzungsbedingungen: <a href="content-guidelines-de">(DE)</a> / <a href="content-guidelines">(EN)</a>.</p>
-    </section>
-    <section>
-      <h2>Impressum</h2>
-      <p>
-        Verantwortlich für den Inhalt dieser Seite:<br>
-        <strong>Klemp & Röder GbR</strong><br>
-        E-Mail: <a href="mailto:support@klemp-roeder.com">support@klemp-roeder.com</a>
-      </p>
-      <p>
-        Hinweis: Dies ist eine Informationsseite für die App „RateMyBuy" und kein kommerzieller Onlineshop.
-      </p>
-    </section>
-  </main>
-  <footer>
-    <p>© 2025 Klemp & Röder GbR. Alle Rechte vorbehalten.</p>
-  </footer>
+    <header>
+        <h1>RateMyBuy</h1>
+        <p class="tagline">Bewerte deine Käufe mit Freunden – von 1 bis 10!</p>
+        <div class="app-stores">
+            <a href="https://apps.apple.com/app/ratemybuy" class="store-badge" target="_blank" rel="noopener">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83&amp;releaseDate=1234567890" alt="Laden im App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.klемproeder.ratemybuy" class="store-badge" target="_blank" rel="noopener">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png" alt="Jetzt bei Google Play">
+            </a>
+        </div>
+    </header>
+    
+    <div class="container">
+        <a href="/" class="back-link">Zurück zur Startseite</a>
+        
+        <section class="section">
+            <h2>Über RateMyBuy</h2>
+            <p>RateMyBuy ist eine innovative Social-Media-App, mit der du deine Käufe und Entdeckungen mit Freunden teilen kannst. Lade Fotos deiner neuesten Einkäufe hoch und lass sie von deiner Community auf einer Skala von 1 bis 10 bewerten.</p>
+            <p>Finde heraus, welche Produkte wirklich "10/10" sind, entdecke Inspiration für neue Käufe und tausche dich mit anderen über Preis-Leistungs-Verhältnisse aus. Mit RateMyBuy wird Shopping zum sozialen Erlebnis!</p>
+        </section>
+        
+        <section class="section">
+            <h2>Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📸</div>
+                    <h3>Käufe teilen</h3>
+                    <p>Teile Fotos deiner Käufe schnell und einfach mit deinen Freunden</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Bewertungen</h3>
+                    <p>Bewerte die Käufe deiner Freunde auf einer Skala von 1 bis 10</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Kommentare</h3>
+                    <p>Diskutiere über Preis-Leistung und tausche Erfahrungen aus</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Entdecken</h3>
+                    <p>Finde Inspiration für neue Käufe in deinem Feed</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Kontakt & Support</h2>
+            <p>Bei Fragen, Feedback oder Support-Anfragen stehen wir dir gerne zur Verfügung:</p>
+            <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
+        </section>
+        
+        <section class="section">
+            <h2>Rechtliche Informationen</h2>
+            <div class="link-section">
+                <p><strong>Datenschutz:</strong></p>
+                <p>
+                    <a href="/RateMyBuy/privacy-policy-de">Datenschutzerklärung (Deutsch)</a> | 
+                    <a href="/RateMyBuy/privacy-policy">Privacy Policy (English)</a>
+                </p>
+            </div>
+            <div class="link-section">
+                <p><strong>Nutzungsbedingungen:</strong></p>
+                <p>
+                    <a href="/RateMyBuy/content-guidelines-de">Content-Richtlinien (Deutsch)</a> | 
+                    <a href="/RateMyBuy/content-guidelines">Content Guidelines (English)</a>
+                </p>
+            </div>
+            <div class="link-section">
+                <p><strong>Impressum:</strong></p>
+                <p>Verantwortlich für den Inhalt dieser Seite:</p>
+                <p><strong>Klemp & Röder GbR</strong><br>
+                E-Mail: <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Klemp & Röder GbR. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="/">Startseite</a>
+            <a href="/Impressum">Impressum</a>
+        </div>
+    </footer>
 </body>
+</html>
 </html>
