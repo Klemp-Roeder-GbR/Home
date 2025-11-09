@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="RateMyBuy Support - Hilfe und Kontakt zur App von Klemp & Röder GbR.">
-    <title>RateMyBuy - Support & Hilfe</title>
+    <meta name="description" content="RateMyBuy Support – Hilfe, Kontakt & rechtliche Informationen zur App von Klemp & Röder GbR.">
+    <title>RateMyBuy – Support & Hilfe</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -19,6 +19,7 @@
             color: white;
             text-align: center;
             padding: 4rem 2rem;
+            position: relative;
         }
 
         h1 {
@@ -30,6 +31,27 @@
         .tagline {
             font-size: 1.2rem;
             color: white;
+        }
+
+        .lang-switch {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+        }
+
+        .lang-switch button {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            padding: 0.4rem 0.8rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+
+        .lang-switch button:hover {
+            background: rgba(255,255,255,0.3);
         }
 
         .container {
@@ -79,7 +101,6 @@
             color: white;
         }
 
-
         .footer-links a {
             color: white;
             text-decoration: none;
@@ -96,53 +117,119 @@
             h1 { font-size: 2rem; }
             .container { padding: 2rem 1rem; }
             .section { padding: 2rem 1.5rem; }
+            .lang-switch { top: 0.8rem; right: 1rem; }
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="lang-switch">
+            <button id="langToggle">English</button>
+        </div>
         <h1>RateMyBuy Support</h1>
-        <p class="tagline">Hilfe, Kontakt & rechtliche Informationen</p>
+        <p class="tagline" data-de="Hilfe, Kontakt & rechtliche Informationen" data-en="Help, Contact & Legal Information">Hilfe, Kontakt & rechtliche Informationen</p>
     </header>
 
     <div class="container">
-        <section class="section">
-            <h2>Willkommen beim RateMyBuy Support</h2>
-            <p>Hier findest du Unterstützung und Informationen rund um die App <strong>RateMyBuy</strong> - entwickelt von <strong>Klemp & Röder GbR</strong>.</p>
-            <p>Wir helfen dir bei technischen Problemen, Fragen zur Nutzung oder allgemeinen Anliegen.</p>
-        </section>
+        <!-- DEUTSCH -->
+        <div class="lang lang-de">
+            <section class="section">
+                <h2>Willkommen beim RateMyBuy Support</h2>
+                <p>Hier findest du Unterstützung und Informationen rund um die App <strong>RateMyBuy</strong> – entwickelt von <strong>Klemp & Röder GbR</strong>.</p>
+                <p>Wir helfen dir bei technischen Problemen, Fragen zur Nutzung oder allgemeinen Anliegen.</p>
+            </section>
 
-        <section class="section">
-            <h2>Kontakt</h2>
-            <p>Wenn du Hilfe benötigst oder Feedback geben möchtest, kontaktiere uns bitte per E-Mail:</p>
-            <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
-            <p>Wir bemühen uns, alle Anfragen innerhalb von 2-3 Werktagen zu beantworten.</p>
-        </section>
+            <section class="section">
+                <h2>Kontakt</h2>
+                <p>Wenn du Hilfe benötigst oder Feedback geben möchtest, kontaktiere uns bitte per E-Mail:</p>
+                <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
+                <p>Wir bemühen uns, alle Anfragen innerhalb von 2–3 Werktagen zu beantworten.</p>
+            </section>
 
-        <section class="section">
-            <h2>Support & Feedback</h2>
-            <p>Unsere App ist noch ganz neu - daher sammeln wir aktuell erste Rückmeldungen. 
-               Wenn du ein Problem entdeckst oder eine Idee hast, schreib uns bitte an 
-               <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a>.</p>
-        </section>
+            <section class="section">
+                <h2>Support & Feedback</h2>
+                <p>Unsere App ist noch ganz neu – daher sammeln wir aktuell erste Rückmeldungen. 
+                Wenn du ein Problem entdeckst oder eine Idee hast, schreib uns bitte an 
+                <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a>.</p>
+            </section>
 
-        <section class="section">
-            <h2>Rechtliche Informationen</h2>
-            <p>Unsere aktuellen Richtlinien und rechtlichen Hinweise findest du hier:</p>
-            <ul>
-                <li><a href="/RateMyBuy/privacy-policy-de">Datenschutzerklärung (Deutsch)</a></li>
-                <li><a href="/RateMyBuy/content-guidelines-de">Content-Richtlinien (Deutsch)</a></li>
-                <li><a href="/Impressum">Impressum</a></li>
-            </ul>
-        </section>
+            <section class="section">
+                <h2>Rechtliche Informationen</h2>
+                <p>Unsere aktuellen Richtlinien und rechtlichen Hinweise findest du hier:</p>
+                <ul>
+                    <li><a href="/RateMyBuy/privacy-policy-de">Datenschutzerklärung (Deutsch)</a></li>
+                    <li><a href="/RateMyBuy/content-guidelines-de">Content-Richtlinien (Deutsch)</a></li>
+                    <li><a href="/Impressum">Impressum</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- ENGLISH -->
+        <div class="lang lang-en" style="display:none;">
+            <section class="section">
+                <h2>Welcome to RateMyBuy Support</h2>
+                <p>Here you’ll find assistance and information about the <strong>RateMyBuy</strong> app, developed by <strong>Klemp & Röder GbR</strong>.</p>
+                <p>We’re happy to help with technical issues, usage questions, or general inquiries.</p>
+            </section>
+
+            <section class="section">
+                <h2>Contact</h2>
+                <p>If you need help or would like to provide feedback, please reach out to us via email:</p>
+                <p><strong>Email:</strong> <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
+                <p>We aim to respond to all requests within 2–3 business days.</p>
+            </section>
+
+            <section class="section">
+                <h2>Support & Feedback</h2>
+                <p>Our app is still brand-new – we’re currently collecting initial feedback.  
+                If you encounter an issue or have a suggestion, please email us at  
+                <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a>.</p>
+            </section>
+
+            <section class="section">
+                <h2>Legal Information</h2>
+                <p>You can find our current policies and legal information here:</p>
+                <ul>
+                    <li><a href="/RateMyBuy/privacy-policy">Privacy Policy (English)</a></li>
+                    <li><a href="/RateMyBuy/content-guidelines">Content Guidelines (English)</a></li>
+                    <li><a href="/Impressum">Legal Notice / Imprint (German)</a></li>
+                </ul>
+            </section>
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2025 Klemp & Röder GbR. Alle Rechte vorbehalten.</p>
+        <p>&copy; 2025 Klemp & Röder GbR. Alle Rechte vorbehalten. / All rights reserved.</p>
         <div class="footer-links">
-            <a href="/RateMyBuy">Zur App-Seite</a>
-            <a href="/">Startseite</a>
+            <a href="/RateMyBuy">Zur App-Seite / App Page</a>
+            <a href="/">Startseite / Home</a>
         </div>
     </footer>
+
+    <script>
+        const btn = document.getElementById('langToggle');
+        const deContent = document.querySelector('.lang-de');
+        const enContent = document.querySelector('.lang-en');
+        const tagline = document.querySelector('.tagline');
+
+        btn.addEventListener('click', () => {
+            const isEnglish = enContent.style.display === 'block';
+            if (isEnglish) {
+                enContent.style.display = 'none';
+                deContent.style.display = 'block';
+                tagline.textContent = tagline.dataset.de;
+                btn.textContent = 'English';
+                document.documentElement.lang = 'de';
+                document.title = 'RateMyBuy – Support & Hilfe';
+            } else {
+                enContent.style.display = 'block';
+                deContent.style.display = 'none';
+                tagline.textContent = tagline.dataset.en;
+                btn.textContent = 'Deutsch';
+                document.documentElement.lang = 'en';
+                document.title = 'RateMyBuy – Support & Help';
+            }
+        });
+    </script>
 </body>
 </html>
