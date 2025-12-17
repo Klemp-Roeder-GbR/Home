@@ -300,6 +300,61 @@
         When you delete your account via “Delete account”, all associated data is permanently deleted or anonymized within 30 days unless legal retention obligations apply.
         Backups may remain for up to 90 days but will also be permanently deleted afterward.
       </p>
+      <h3>3.7 Friend Suggestions (optional)</h3>
+      <p>
+        Users can optionally enable a feature that displays automatic friend suggestions.
+      </p>
+      
+      <p>
+        <strong>How it works:</strong><br>
+        To determine potential friend suggestions, a server-side
+        <strong>Firebase Cloud Function</strong> evaluates the user’s friend list as well as
+        the friend lists of their friends in order to identify shared contacts
+        (so-called <em>mutual friends</em>).
+      </p>
+      
+      <p>
+        <strong>Requirements:</strong><br>
+        Friend suggestions are created and displayed exclusively for users who have
+        actively enabled this feature. Users are only suggested to other users who have
+        also enabled the feature. Users are furthermore only suggested to others if they
+        themselves have enabled the feature.
+      </p>
+      
+      <p>
+        <strong>Processed data:</strong><br>
+        Only internal <strong>user IDs</strong> are processed.
+        Content, ratings, comments, email addresses, or other profile data
+        are not evaluated for the creation of friend suggestions.
+      </p>
+      
+      <p>
+        <strong>Storage and updates:</strong><br>
+        The identified friend suggestions are stored in a separate database collection
+        and continuously updated as long as the user has the feature enabled
+        or their user account exists.
+        When the feature is deactivated or the user account is deleted,
+        the associated friend suggestions are deleted.
+      </p>
+      
+      <p>
+        <strong>Purpose:</strong><br>
+        Improvement of social connectivity within the app and facilitation
+        of finding known contacts.
+      </p>
+      
+      <p>
+        <strong>Legal basis:</strong><br>
+        Art. 6(1)(a) GDPR (consent).
+      </p>
+      
+      <p>
+        <strong>Withdrawal:</strong><br>
+        Consent can be withdrawn at any time in the app settings.
+        In this case, no new friend suggestions will be created
+        and existing suggestions will be deleted.
+      </p>
+
     </section>
 
     <section>
