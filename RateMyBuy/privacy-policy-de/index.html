@@ -263,7 +263,7 @@
       <ul>
         <li><strong>User-ID:</strong> Eindeutige Identifikationsnummer deines Kontos</li>
         <li><strong>Benutzername (Username):</strong> Dein gewählter Nutzername und in normalisierter Form, für Einzigartigkeit</li>
-        <li><strong>E-Mail-Adresse:</strong> Deine E-Mail-Adresse sowie der Status, ob diese verifiziert wurde</li>
+        <li><strong>E-Mail-Adresse:</strong> Deine E-Mail-Adresse wird ausschließlich im Rahmen der Nutzerauthentifizierung über Firebase Authentication gespeichert und verwaltet. Sie wird nicht in der Firestore-Datenbank gespeichert und nicht für Analyse- oder Werbezwecke verwendet.</li>
         <li><strong>Profilbild:</strong> Falls hochgeladen, dein Profilbild</li>
         <li><strong>Registrierungsdatum:</strong> Zeitpunkt der Kontoerstellung sowie Vervollständigung</li>
         <li><strong>Letzter Login:</strong> Zeitpunkt deiner letzten Anmeldung für jedes Gerät, inklusive Platform</li>
@@ -309,6 +309,61 @@
         innerhalb von 30 Tagen dauerhaft gelöscht oder anonymisiert, sofern keine gesetzlichen 
         Aufbewahrungspflichten entgegenstehen. Backups oder Sicherheitskopien können aus technischen Gründen noch bis zu 90 Tage bestehen bleiben, werden aber ebenfalls nach Ablauf dieser Frist endgültig gelöscht.
       </p>
+      <h4>Freundschaftsvorschläge (optional)</h4>
+      <p>
+        Nutzer können optional ein Feature aktivieren, über das ihnen automatische Freundschaftsvorschläge angezeigt werden.
+      </p>
+      
+      <p>
+        <strong>Funktionsweise:</strong><br>
+        Zur Ermittlung möglicher Freundschaftsvorschläge werden in einer serverseitigen
+        <strong>Firebase Cloud Function</strong> die Freundeslisten des Nutzers sowie die
+        Freundeslisten seiner Freunde ausgewertet, um gemeinsame Kontakte
+        (sogenannte <em>Mutual Friends</em>) zu identifizieren.
+      </p>
+      
+      <p>
+        <strong>Voraussetzungen:</strong><br>
+        Freundschaftsvorschläge werden ausschließlich für Nutzer erstellt und angezeigt,
+        die dieses Feature aktiv aktiviert haben. Nutzer werden nur anderen Nutzern
+        vorgeschlagen, die das Feature ebenfalls aktiviert haben. Nutzer werden außerdem anderen nur vorgeschlagen, wenn 
+        sie das Feature selber aktiviert haben.
+      </p>
+      
+      <p>
+        <strong>Verarbeitete Daten:</strong><br>
+        Es werden ausschließlich interne <strong>User-IDs</strong> verarbeitet.
+        Inhalte, Bewertungen, Kommentare, E-Mail-Adressen oder andere Profildaten
+        werden für die Erstellung der Freundschaftsvorschläge nicht ausgewertet.
+      </p>
+      
+      <p>
+        <strong>Speicherung und Aktualisierung:</strong><br>
+        Die ermittelten Freundschaftsvorschläge werden in einer separaten Datenbank-Collection
+        gespeichert und fortlaufend aktualisiert, solange der Nutzer das Feature aktiviert hat
+        oder sein Nutzerkonto besteht.
+        Bei Deaktivierung des Features oder Löschung des Nutzerkontos werden die zugehörigen
+        Freundschaftsvorschläge gelöscht.
+      </p>
+      
+      <p>
+        <strong>Zweck:</strong><br>
+        Verbesserung der sozialen Vernetzung innerhalb der App sowie Erleichterung
+        des Auffindens bekannter Kontakte.
+      </p>
+      
+      <p>
+        <strong>Rechtsgrundlage:</strong><br>
+        Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+      </p>
+      
+      <p>
+        <strong>Widerruf:</strong><br>
+        Die Einwilligung kann jederzeit in den App-Einstellungen widerrufen werden.
+        In diesem Fall werden keine neuen Freundschaftsvorschläge mehr erstellt
+        und bestehende Vorschläge gelöscht.
+      </p>
+
     </section>
 
     <section>
