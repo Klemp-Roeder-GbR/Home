@@ -13,170 +13,267 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #ff6b35;
+            --primary-light: #ff8c61;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --bg: #1a1d29;
+            --bg-card: #242837;
+            --text: #ffffff;
+            --text-muted: #a8b2d1;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
         
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: linear-gradient(135deg, #1a1d29 0%, #242837 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15), transparent 70%);
+            top: -300px;
+            right: -200px;
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1), transparent 70%);
+            bottom: -200px;
+            left: -150px;
+            border-radius: 50%;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
         }
         
         .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
         }
         
         .container {
-            max-width: 1200px;
+            width: 100%;
+            padding: 0;
+        }
+        
+        .section {
+            padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 8vw, 8rem);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section:nth-child(even) {
+            background: var(--bg-card);
+        }
+        
+        .section-content {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 3rem 2rem;
         }
         
-        .about {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-        
-        .about h2 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-        }
-        
-        .about p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #555;
-        }
-        
-        .apps {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-        
-        .apps h2 {
-            color: #667eea;
+        .section h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
             margin-bottom: 2rem;
-            font-size: 2rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: clamp(28px, 4vw, 40px);
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            margin-right: 1.5rem;
+            vertical-align: middle;
+            border-radius: 3px;
+        }
+        
+        .section p {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 900px;
         }
         
         .app-card {
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), rgba(78, 205, 196, 0.08));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .app-card:hover::before {
+            opacity: 1;
         }
         
         .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+            border-color: var(--primary);
+            transform: translateY(-8px);
         }
         
         .app-card h3 {
-            color: #333;
+            color: var(--text);
             margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+            position: relative;
         }
         
         .app-card p {
-            color: #666;
-            margin-bottom: 1rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+            position: relative;
+            margin-bottom: 1.5rem;
         }
         
         .app-link {
             display: inline-block;
-            background: #667eea;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
             text-decoration: none;
-            transition: background 0.3s;
-            font-weight: 500;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+            position: relative;
         }
         
         .app-link:hover {
-            background: #5568d3;
-        }
-        
-        .contact {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-        
-        .contact h2 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
         }
         
         .contact-info {
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 2;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .contact-info p {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info strong {
+            color: var(--text);
+        }
+        
+        .contact-info a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary);
         }
         
         footer {
-            background: #2d3748;
-            color: white;
-            padding: 2rem;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem);
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .footer-links {
-            margin-top: 1rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
         
         .footer-links a {
-            color: white;
+            color: var(--text-muted);
             text-decoration: none;
-            margin: 0 1rem;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            transition: color 0.2s ease;
+            font-weight: 500;
+            font-size: 1rem;
         }
         
         .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
+            color: var(--primary);
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            header {
+                min-height: 90vh;
             }
             
-            .container {
-                padding: 2rem 1rem;
-            }
-            
-            .about, .apps, .contact {
-                padding: 2rem 1.5rem;
-            }
-            
-            .footer-links a {
-                display: block;
-                margin: 0.5rem 0;
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
     </style>
@@ -184,30 +281,36 @@
 <body>
     <header>
         <h1>Klemp & Röder GbR</h1>
-        <p class="tagline">Entwicklung mobiler Anwendungen</p>
+        <p class="tagline">Entwicklung mobiler Anwendungen mit Fokus auf einfache Bedienung und klare Gestaltung</p>
     </header>
     
     <div class="container">
-        <section class="about">
-            <h2>Über uns</h2>
-            <p>Klemp & Röder GbR ist ein junges Entwicklerteam mit Sitz in Deutschland. Wir entwickeln mobile Anwendungen mit Fokus auf einfache Bedienung, klare Gestaltung und praktische Alltagstauglichkeit.</p>
-            <p>Unser Ziel ist es, digitale Lösungen zu schaffen, die funktionieren - technisch solide, verständlich und mit Liebe zum Detail umgesetzt.</p>
-        </section>
-        
-        <section class="apps">
-            <h2>Unsere Apps</h2>
-            <div class="app-card">
-                <h3>RateMyBuy</h3>
-                <p>Mit <strong>RateMyBuy</strong> können Nutzer ihre Einkäufe teilen und gemeinsam bewerten. Die App bietet eine einfache Möglichkeit, Preis-Leistung und Erfahrungen auszutauschen.</p>
-                <a href="/RateMyBuy" class="app-link">Mehr erfahren →</a>
+        <section class="section">
+            <div class="section-content">
+                <h2>Über uns</h2>
+                <p>Klemp & Röder GbR ist ein junges Entwicklerteam mit Sitz in Deutschland. Wir entwickeln und betreiben mobile Anwendungen mit Fokus auf einfache Bedienung, klare Gestaltung und praktische Alltagstauglichkeit.</p>
+                <p>Unser Ziel ist es, digitale Lösungen zu schaffen, die funktionieren - technisch solide, verständlich und mit Liebe zum Detail umgesetzt.</p>
             </div>
         </section>
         
-        <section class="contact">
-            <h2>Kontakt</h2>
-            <div class="contact-info">
-                <p><strong>Klemp & Röder GbR</strong></p>
-                <p>E-Mail: support@klemp-roeder.de</p>
+        <section class="section">
+            <div class="section-content">
+                <h2>Unsere Apps</h2>
+                <div class="app-card">
+                    <h3>RateMyBuy</h3>
+                    <p>Mit <strong>RateMyBuy</strong> können Nutzer ihre Einkäufe teilen und gemeinsam bewerten. Die App bietet eine einfache Möglichkeit, Preis-Leistung und Erfahrungen auszutauschen.</p>
+                    <a href="/RateMyBuy" class="app-link">Mehr erfahren →</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="section-content">
+                <h2>Kontakt</h2>
+                <div class="contact-info">
+                    <p><strong>Klemp & Röder GbR</strong></p>
+                    <p>E-Mail: <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
+                </div>
             </div>
         </section>
     </div>
@@ -218,5 +321,26 @@
             <a href="/Impressum">Impressum</a>
         </div>
     </footer>
+
+    <script>
+        // Intersection Observer für Scroll-Animationen
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Alle Sektionen beobachten
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
