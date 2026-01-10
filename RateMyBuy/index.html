@@ -12,50 +12,103 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #ff6b35;
+            --primary-light: #ff8c61;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --bg: #1a1d29;
+            --bg-card: #242837;
+            --text: #ffffff;
+            --text-muted: #a8b2d1;
+        }
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
         }
         
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
+            background: linear-gradient(135deg, #1a1d29 0%, #242837 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15), transparent 70%);
+            top: -300px;
+            right: -200px;
+            border-radius: 50%;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1), transparent 70%);
+            bottom: -200px;
+            left: -150px;
+            border-radius: 50%;
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            font-size: clamp(3rem, 8vw, 6rem);
             font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
         }
         
         .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
         }
         
         .app-stores {
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
         }
         
         .store-badge {
             display: inline-block;
-            width: 180px;
-            transition: transform 0.2s, opacity 0.2s;
+            width: 200px;
+            transition: all 0.3s ease;
+            filter: brightness(1.1);
         }
         
         .store-badge:hover {
-            transform: translateY(-3px);
-            opacity: 0.9;
+            transform: translateY(-5px) scale(1.05);
+            filter: brightness(1.2);
         }
         
         .store-badge img {
@@ -64,142 +117,278 @@
         }
         
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+            width: 100%;
+            padding: 0;
         }
         
         .section {
-            background: white;
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
+            padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 8vw, 8rem);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section:nth-child(even) {
+            background: var(--bg-card);
+        }
+        
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+        }
+        
+        .scroll-to-top::before {
+            content: "↑";
+            font-size: 1.5rem;
+            font-weight: bold;
         }
         
         .section h2 {
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+        
+        .section h2::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: clamp(28px, 4vw, 40px);
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            margin-right: 1.5rem;
+            vertical-align: middle;
+            border-radius: 3px;
         }
         
         .section p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: #555;
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 900px;
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: 3rem;
         }
         
         .feature-card {
-            text-align: center;
-            padding: 1.5rem;
-            border-radius: 8px;
-            background: #f8f9fa;
-            transition: transform 0.2s;
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section.visible .feature-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .section.visible .feature-card:nth-child(1) { transition-delay: 0.05s; }
+        .section.visible .feature-card:nth-child(2) { transition-delay: 0.05s; }
+        .section.visible .feature-card:nth-child(3) { transition-delay: 0.05s; }
+        .section.visible .feature-card:nth-child(4) { transition-delay: 0.05s; }
+        .section.visible .feature-card:nth-child(5) { transition-delay: 0.05s; }
+        .section.visible .feature-card:nth-child(6) { transition-delay: 0.05s; }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), rgba(78, 205, 196, 0.08));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            border-color: var(--primary);
+            transform: translateY(-8px);
         }
         
         .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 4px 8px rgba(255, 107, 53, 0.3));
         }
         
         .feature-card h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            font-weight: 600;
+            position: relative;
         }
         
         .feature-card p {
-            font-size: 1rem;
-            color: #666;
-        }
-        
-        .back-link {
-            display: inline-block;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .back-link:hover {
-            color: #5568d3;
-        }
-        
-        .back-link::before {
-            content: "← ";
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+            position: relative;
         }
         
         .link-section {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            padding: clamp(1.5rem, 3vw, 2rem);
+            background: rgba(255, 107, 53, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .link-section p {
+            margin-bottom: 0.75rem;
         }
         
         .link-section a {
-            color: #667eea;
+            color: var(--secondary);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.2s ease;
+            font-weight: 500;
         }
         
         .link-section a:hover {
-            color: #5568d3;
-            text-decoration: underline;
+            color: var(--primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: center;
+        }
+        
+        .about-text {
+            max-width: 100%;
+        }
+        
+        .about-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
         }
         
         footer {
-            background: #2d3748;
-            color: white;
-            padding: 2rem;
+            background: var(--bg-card);
+            color: var(--text-muted);
+            padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem);
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
         
         .footer-links {
-            margin-top: 1rem;
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
         }
         
         .footer-links a {
-            color: white;
+            color: var(--text-muted);
             text-decoration: none;
-            margin: 0 1rem;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            transition: color 0.2s ease;
+            font-weight: 500;
+            font-size: 1rem;
         }
         
         .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
+            color: var(--primary);
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
+            header {
+                min-height: 90vh;
             }
             
-            .container {
-                padding: 2rem 1rem;
-            }
-            
-            .section {
-                padding: 2rem 1.5rem;
-            }
-            
-            .footer-links a {
-                display: block;
-                margin: 0.5rem 0;
+            .app-stores {
+                gap: 1.5rem;
             }
             
             .store-badge {
-                width: 150px;
+                width: 170px;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .scroll-to-top {
+                top: 1.5rem;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .scroll-to-top::before {
+                font-size: 1.2rem;
             }
         }
     </style>
@@ -219,71 +408,84 @@
     </header>
     
     <div class="container">
-        <a href="/" class="back-link">Zurück zur Startseite</a>
-        
         <section class="section">
-            <h2>Über RateMyBuy</h2>
-            <p>RateMyBuy ist eine Social-App, mit der du deine Käufe und Entdeckungen mit Freunden teilen kannst. Lade Fotos deiner neuesten Errungenschaften hoch und lass sie von deiner Community auf einer Skala von 1 bis 10 bewerten.</p>
-            <p>Finde heraus, welche Produkte wirklich "10/10" sind, entdecke Inspiration für neue Käufe und tausche dich mit anderen über Preis-Leistungs-Verhältnisse aus. Mit RateMyBuy wird Shopping zum gemeinsamen Erlebnis!</p>
-        </section>
-        
-        <section class="section">
-            <h2>Features</h2>
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">📸</div>
-                    <h3>Käufe teilen</h3>
-                    <p>Teile Fotos deiner Käufe schnell und einfach mit deinen Freunden</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Bewertungen</h3>
-                    <p>Lasse deine Käufe von Freunden auf einer Skala von 1 bis 10 bewerten</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Kommentare</h3>
-                    <p>Diskutiere über Preis-Leistung und tausche Erfahrungen aus</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Entdecken</h3>
-                    <p>Finde Inspiration für neue Käufe in deinem Feed</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📈</div>
-                    <h3>Durchschnitt</h3>
-                    <p>Sieh auf einen Blick, wie gut dein Post bewertet wurde - basierend auf dem Durchschnitt aller Stimmen</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔥</div>
-                    <h3>Rates sammeln</h3>
-                    <p>Gib selbst Bewertungen ab und sammle „Rates“</p>
+            <div class="section-content">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>Über RateMyBuy</h2>
+                        <p>RateMyBuy ist eine Social-App, mit der du deine Käufe und Entdeckungen mit Freunden teilen kannst. Lade Fotos deiner neuesten Errungenschaften hoch und lass sie von deiner Community auf einer Skala von 1 bis 10 bewerten.</p>
+                        <p>Finde heraus, welche Produkte wirklich "10/10" sind, entdecke Inspiration für neue Käufe und tausche dich mit anderen über Preis-Leistungs-Verhältnisse aus. Mit RateMyBuy wird Shopping zum gemeinsamen Erlebnis!</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/app-screenshot.png" alt="RateMyBuy App Screenshot">
+                    </div>
                 </div>
             </div>
         </section>
         
         <section class="section">
-            <h2>Kontakt & Support</h2>
-            <p>Bei Fragen, Feedback oder Support-Anfragen stehen wir dir gerne zur Verfügung:</p>
-            <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.de">support@klemp-roeder.de</a></p>
+            <div class="section-content">
+                <h2>Features</h2>
+                <div class="features">
+                    <div class="feature-card">
+                        <span class="feature-icon">📸</span>
+                        <h3>Käufe teilen</h3>
+                        <p>Teile Fotos deiner Käufe schnell und einfach mit deinen Freunden</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">⭐</span>
+                        <h3>Bewertungen</h3>
+                        <p>Lasse deine Käufe von Freunden auf einer Skala von 1 bis 10 bewerten</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">💬</span>
+                        <h3>Kommentare</h3>
+                        <p>Diskutiere über Preis-Leistung und tausche Erfahrungen aus</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔍</span>
+                        <h3>Entdecken</h3>
+                        <p>Finde Inspiration für neue Käufe in deinem Feed</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">📈</span>
+                        <h3>Durchschnitt</h3>
+                        <p>Sieh auf einen Blick, wie gut dein Post bewertet wurde - basierend auf dem Durchschnitt aller Stimmen</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon">🔥</span>
+                        <h3>Rates sammeln</h3>
+                        <p>Gib selbst Bewertungen ab und sammle „Rates"</p>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <section class="section">
-            <h2>Rechtliche Informationen</h2>
-            <div class="link-section">
-                <p><strong>Datenschutz:</strong></p>
-                <p>
-                    <a href="/RateMyBuy/privacy-policy-de">Datenschutzerklärung (Deutsch)</a> | 
-                    <a href="/RateMyBuy/privacy-policy">Privacy Policy (English)</a>
-                </p>
+            <div class="section-content">
+                <h2>Kontakt & Support</h2>
+                <p>Bei Fragen, Feedback oder Support-Anfragen stehen wir dir gerne zur Verfügung:</p>
+                <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.de" style="color: var(--secondary); text-decoration: none; font-weight: 500;">support@klemp-roeder.de</a></p>
             </div>
-            <div class="link-section">
-                <p><strong>Nutzungsbedingungen:</strong></p>
-                <p>
-                    <a href="/RateMyBuy/content-guidelines-de">Content-Richtlinien (Deutsch)</a> | 
-                    <a href="/RateMyBuy/content-guidelines">Content Guidelines (English)</a>
-                </p>
+        </section>
+        
+        <section class="section">
+            <div class="section-content">
+                <h2>Rechtliche Informationen</h2>
+                <div class="link-section">
+                    <p><strong>Datenschutz:</strong></p>
+                    <p>
+                        <a href="/RateMyBuy/privacy-policy-de">Datenschutzerklärung (Deutsch)</a> | 
+                        <a href="/RateMyBuy/privacy-policy">Privacy Policy (English)</a>
+                    </p>
+                </div>
+                <div class="link-section">
+                    <p><strong>Nutzungsbedingungen:</strong></p>
+                    <p>
+                        <a href="/RateMyBuy/content-guidelines-de">Content-Richtlinien (Deutsch)</a> | 
+                        <a href="/RateMyBuy/content-guidelines">Content Guidelines (English)</a>
+                    </p>
+                </div>
             </div>
         </section>
     </div>
@@ -295,6 +497,46 @@
             <a href="/Impressum">Impressum</a>
         </div>
     </footer>
+
+    <div class="scroll-to-top" id="scrollToTop">App installieren</div>
+
+    <script>
+        // Intersection Observer für Scroll-Animationen
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Alle Sektionen beobachten
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Scroll-to-Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
-</html>
 </html>
