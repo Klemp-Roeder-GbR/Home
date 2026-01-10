@@ -364,11 +364,12 @@
             }
             
             .app-stores {
-                gap: 1.5rem;
+                gap: 1rem;
+                flex-wrap: nowrap;
             }
             
             .store-badge {
-                width: 170px;
+                width: 150px;
             }
             
             .about-grid {
@@ -501,7 +502,6 @@
     <div class="scroll-to-top" id="scrollToTop">App installieren</div>
 
     <script>
-        // Intersection Observer für Scroll-Animationen
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -515,12 +515,10 @@
             });
         }, observerOptions);
 
-        // Alle Sektionen beobachten
         document.querySelectorAll('.section').forEach(section => {
             observer.observe(section);
         });
 
-        // Scroll-to-Top Button
         const scrollToTopBtn = document.getElementById('scrollToTop');
         
         window.addEventListener('scroll', () => {
