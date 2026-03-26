@@ -220,7 +220,7 @@
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: clamp(1.5rem, 3vw, 2.5rem);
             margin-top: 3rem;
         }
@@ -275,6 +275,7 @@
             margin-bottom: 1.5rem;
             display: block;
             filter: drop-shadow(0 4px 8px rgba(255, 107, 53, 0.3));
+            user-select: none;
         }
         
         .feature-card h3 {
@@ -296,6 +297,7 @@
             position: relative;
             width: 100%;
             max-width: 300px;
+            caret-color: transparent;
         }
 
         .carousel-track-wrapper {
@@ -329,6 +331,9 @@
             background: rgba(255,255,255,0.2);
             transition: background 0.3s ease, transform 0.3s ease;
             cursor: pointer;
+            user-select: none;
+            outline: none;
+            caret-color: transparent;
         }
 
         .dot.active {
@@ -425,6 +430,18 @@
         .footer-links a:hover {
             color: var(--accent);
         }
+
+        @media (max-width: 900px) {
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
         
         @media (max-width: 768px) {
             header {
@@ -460,9 +477,12 @@
                 font-size: 1.2rem;
             }
 
-            .about-image { order: -1; }
+            .about-image { order: 2; }
+
+            .about-text {
+                order: 1;
+            }
     
-            /* Carousel nicht zu schmal werden lassen */
             .carousel { max-width: 100%; }
 
             .section {
