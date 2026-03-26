@@ -13,14 +13,17 @@
         }
         
         :root {
-            --primary: #ff6b35;
-            --primary-light: #ff8c61;
-            --secondary: #4ecdc4;
-            --accent: #ffe66d;
-            --bg: #1a1d29;
-            --bg-card: #242837;
-            --text: #ffffff;
-            --text-muted: #a8b2d1;
+            --primary: #90CAF9;           /* App Dark Primary (Blau) */
+            --primary-light: #BBDEFB;     /* Helleres Blau */
+            --secondary: #81C784;         /* App Dark Secondary (Grün) */
+            --accent: #fb8c00;            /* App Dark Tertiary (Orange/Star Rating) */
+            --rating-low: #EF5350;        /* App Dark Error (Rot für niedrige Ratings) */
+            --rating-mid: #FFB74D;        /* Orange für mittlere Ratings */
+            --rating-high: #81C784;       /* Grün für hohe Ratings */
+            --bg: #1a1d29;                /* App Dark Scaffold Background */
+            --bg-card: #242837;           /* App Dark Surface Container */
+            --text: #E6E0E9;              /* App Dark onSurface */
+            --text-muted: #CAC4D0;        /* App Dark onSurfaceVariant */
         }
         
         body {
@@ -71,7 +74,7 @@
             font-weight: 700;
             letter-spacing: -0.03em;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -108,7 +111,7 @@
         
         .store-badge:hover {
             transform: translateY(-5px) scale(1.05);
-            filter: brightness(1.2);
+            
         }
         
         .store-badge img {
@@ -149,7 +152,7 @@
             left: 50%;
             transform: translateX(-50%) translateY(-20px);
             padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            background: var(--accent);
             border-radius: 50px;
             display: flex;
             align-items: center;
@@ -158,7 +161,7 @@
             z-index: 100;
             opacity: 0;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.4);
+            box-shadow: 0 4px 20px rgba(255, 183, 77, 0.4);
             border: 2px solid rgba(255, 255, 255, 0.1);
             color: white;
             font-weight: 600;
@@ -173,7 +176,7 @@
         
         .scroll-to-top:hover {
             transform: translateX(-50%) translateY(-3px);
-            box-shadow: 0 6px 30px rgba(255, 107, 53, 0.6);
+            box-shadow: 0 6px 30px rgba(255, 183, 77, 0.6);
         }
         
         .scroll-to-top::before {
@@ -247,7 +250,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.08), rgba(78, 205, 196, 0.08));
+            background: linear-gradient(135deg, rgba(255, 183, 77, 0.08), rgba(129, 199, 132, 0.08));
             opacity: 0;
             transition: opacity 0.3s ease;
         }
@@ -257,7 +260,7 @@
         }
         
         .feature-card:hover {
-            border-color: var(--primary);
+            border-color: var(--accent);
             transform: translateY(-8px);
         }
         
@@ -286,9 +289,9 @@
         .link-section {
             margin-top: 2rem;
             padding: clamp(1.5rem, 3vw, 2rem);
-            background: rgba(255, 107, 53, 0.05);
+            background: rgba(144, 202, 249, 0.05);
             border-radius: 12px;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--primary); 
         }
         
         .link-section p {
@@ -296,14 +299,28 @@
         }
         
         .link-section a {
-            color: var(--secondary);
+            color: var(--primary);
             text-decoration: none;
             transition: all 0.2s ease;
             font-weight: 500;
         }
         
         .link-section a:hover {
+            color: #BBDEFB;
+            text-decoration-color: #BBDEFB;
+        }
+
+        .contact-link {
             color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: rgba(144, 202, 249, 0.4);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .contact-link:hover {
+            color: #BBDEFB;
         }
 
         .about-grid {
@@ -356,7 +373,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
         
         @media (max-width: 768px) {
@@ -482,7 +499,7 @@
             <div class="section-content">
                 <h2>Kontakt & Support</h2>
                 <p>Bei Fragen, Feedback oder Support-Anfragen stehen wir dir gerne zur Verfügung:</p>
-                <p><strong>E-Mail:</strong> <a href="mailto:kontakt@klemp-roeder.de" style="color: var(--secondary); text-decoration: none; font-weight: 500;">kontakt@klemp-roeder.de</a></p>
+                <p><strong>E-Mail:</strong> <a href="mailto:kontakt@klemp-roeder.de" class="contact-link">kontakt@klemp-roeder.de</a></p>
             </div>
         </section>
         
