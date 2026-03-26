@@ -303,6 +303,7 @@
         .carousel-track-wrapper {
             overflow: hidden;
             border-radius: 16px;
+            cursor: grab;
         }
 
         .carousel-track {
@@ -691,6 +692,7 @@
 
         startAutoplay();
 
+        // Touch auf Mobile
         let touchStartX = 0;
 
         track.parentElement.addEventListener('touchstart', e => {
@@ -703,6 +705,39 @@
                 goTo(diff > 0 ? (current + 1) % total : (current - 1 + total) % total);
                 startAutoplay();
             }
+        });
+
+        // Mouse (Desktop)
+        let mouseStartX = 0;
+        let isDragging = false;
+
+        track.parentElement.addEventListener('mousedown', e => {
+            mouseStartX = e.clientX;
+            isDragging = true;
+            track.parentElement.style.cursor = 'grabbing';
+        });
+
+        track.parentElement.addEventListener('mouseup', e => {
+            if (!isDragging) return;
+            isDragging = false;
+            track.parentElement.style.cursor = 'grab';
+
+            const diff = mouseStartX - e.clientX;
+            if (Math.abs(diff) > 50) {
+                goTo(diff > 0 ? (current + 1) % total : (current - 1 + total) % total);
+                startAutoplay();
+            }
+        });
+
+        // Falls Maus das Element verlässt während Drag
+        track.parentElement.addEventListener('mouseleave', () => {
+            isDragging = false;
+            track.parentElement.style.cursor = 'grab';
+        });
+
+        // Verhindert, dass Bilder beim Ziehen "mitgenommen" werden
+        track.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', e => e.preventDefault());
         });
     </script>
 </body>
