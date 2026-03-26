@@ -20,17 +20,17 @@
         }
         
         :root {
-            --primary: #90CAF9;           /* App Dark Primary (Blau) */
-            --primary-light: #BBDEFB;     /* Helleres Blau */
-            --secondary: #81C784;         /* App Dark Secondary (Grün) */
-            --accent: #fb8c00;            /* App Dark Tertiary (Orange/Star Rating) */
-            --rating-low: #EF5350;        /* App Dark Error (Rot für niedrige Ratings) */
-            --rating-mid: #FFB74D;        /* Orange für mittlere Ratings */
-            --rating-high: #81C784;       /* Grün für hohe Ratings */
-            --bg: #1a1d29;                /* App Dark Scaffold Background */
-            --bg-card: #242837;           /* App Dark Surface Container */
-            --text: #E6E0E9;              /* App Dark onSurface */
-            --text-muted: #CAC4D0;        /* App Dark onSurfaceVariant */
+            --primary: #90CAF9;
+            --primary-light: #BBDEFB;
+            --secondary: #81C784;
+            --accent: #fb8c00;
+            --rating-low: #EF5350;
+            --rating-mid: #FFB74D;
+            --rating-high: #81C784;
+            --bg: #1a1d29;
+            --bg-card: #242837;
+            --text: #E6E0E9;
+            --text-muted: #CAC4D0;
         }
         
         body {
@@ -544,7 +544,7 @@
             <div class="section-content">
                 <div class="about-grid">
                     <div class="about-text">
-                        <h2>Coming Soon: Gruppen</h2>
+                        <h2>Coming soon: Gruppen</h2>
                         <p>Trete öffentlichen Gruppen zu deinen Lieblingsthemen bei! Ob Food, Tech-Gadgets, Fashion oder Gym - diskutiere mit Gleichgesinnten über Preis-Leistung und entdecke, was die Community kauft und empfiehlt.</p>
                         <p>Teile deine Käufe nicht nur mit Freunden, sondern mit der ganzen Gruppe. Vergleiche Preise, finde Schnäppchen und lass dich von echten Preis-Leistungs-Empfehlungen inspirieren! Das Gruppen-Feature macht RateMyBuy noch vielfältiger!</p>
                     </div>
@@ -707,7 +707,7 @@
             }
         });
 
-        // Mouse (Desktop)
+        // Mouse auf Destop
         let mouseStartX = 0;
         let isDragging = false;
 
@@ -729,13 +729,11 @@
             }
         });
 
-        // Falls Maus das Element verlässt während Drag
         track.parentElement.addEventListener('mouseleave', () => {
             isDragging = false;
             track.parentElement.style.cursor = 'grab';
         });
 
-        // Verhindert, dass Bilder beim Ziehen "mitgenommen" werden
         track.querySelectorAll('img').forEach(img => {
             img.addEventListener('dragstart', e => e.preventDefault());
         });
