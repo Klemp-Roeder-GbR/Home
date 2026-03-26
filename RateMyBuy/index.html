@@ -211,7 +211,7 @@
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
             gap: clamp(1.5rem, 3vw, 2.5rem);
             margin-top: 3rem;
         }
@@ -328,6 +328,7 @@
             height: auto;
             max-height: 600px;
             object-fit: contain;
+            display: block;
         }
         
         footer {
@@ -397,7 +398,7 @@
 <body>
     <header>
         <h1>RateMyBuy</h1>
-        <p class="tagline">Teile deine Käufe mit Freunden und lasse sie bewerten - von 1 bis 10!</p>
+        <p class="tagline">Teile deine Käufe und bewerte Preis-Leistung - von 1 bis 10!</p>
         <div class="app-stores">
             <a href="https://apps.apple.com/app/id6752779751" class="store-badge" target="_blank" rel="noopener">
                 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/de-de?size=250x83&amp;releaseDate=1234567890" alt="Laden im App Store">
@@ -414,11 +415,26 @@
                 <div class="about-grid">
                     <div class="about-text">
                         <h2>Über RateMyBuy</h2>
-                        <p>RateMyBuy ist eine Social-App, mit der du deine Käufe und Entdeckungen mit Freunden teilen kannst. Lade Fotos deiner neuesten Errungenschaften hoch und lass sie von deiner Community auf einer Skala von 1 bis 10 bewerten.</p>
-                        <p>Finde heraus, welche Produkte wirklich "10/10" sind, entdecke Inspiration für neue Käufe und tausche dich mit anderen über Preis-Leistungs-Verhältnisse aus. Mit RateMyBuy wird Shopping zum gemeinsamen Erlebnis!</p>
+                        <p>RateMyBuy ist eine Social-App, mit der du deine Käufe und Entdeckungen mit Freunden teilen kannst. Lade Fotos deiner neuesten Errungenschaften hoch und lass sie auf einer Skala von 1 bis 10 bewerten.</p>
+                        <p>Finde heraus, welche Produkte wirklich "10/10" sind, entdecke Inspiration für neue Käufe und tausche dich mit anderen über Preis-Leistungs-Verhältnisse aus. </p>
                     </div>
                     <div class="about-image">
                         <img src="images/app-screenshot.png" alt="RateMyBuy App Screenshot">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-content">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>Coming Soon: Gruppen</h2>
+                        <p>Trete öffentlichen Gruppen zu deinen Lieblingsthemen bei! Ob Food, Tech-Gadgets, Fashion oder Gym - diskutiere mit Gleichgesinnten über Preis-Leistung und entdecke, was die Community kauft und empfiehlt.</p>
+                        <p>Teile deine Käufe nicht nur mit Freunden, sondern mit der ganzen Gruppe. Vergleiche Preise, finde Schnäppchen und lass dich von echten Preis-Leistungs-Empfehlungen inspirieren! Das Gruppen-Feature macht RateMyBuy noch vielfältiger!</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/groups-preview.png" alt="RateMyBuy Gruppen Feature Vorschau">
                     </div>
                 </div>
             </div>
@@ -445,13 +461,13 @@
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">🔍</span>
-                        <h3>Entdecken</h3>
-                        <p>Finde Inspiration für neue Käufe in deinem Feed</p>
+                        <h3>Preis-Leistungs-Sieger</h3>
+                        <p>Entdecke, welche Produkte wirklich ihr Geld wert sind</p>
                     </div>
                     <div class="feature-card">
-                        <span class="feature-icon">📈</span>
-                        <h3>Durchschnitt</h3>
-                        <p>Sieh auf einen Blick, wie gut dein Post bewertet wurde - basierend auf dem Durchschnitt aller Stimmen</p>
+                        <span class="feature-icon">👥</span>
+                        <h3>Gruppen</h3>
+                        <p>Tritt öffentlichen Gruppen bei und tausche dich mit Gleichgesinnten aus</p>
                     </div>
                     <div class="feature-card">
                         <span class="feature-icon">🔥</span>
@@ -466,7 +482,7 @@
             <div class="section-content">
                 <h2>Kontakt & Support</h2>
                 <p>Bei Fragen, Feedback oder Support-Anfragen stehen wir dir gerne zur Verfügung:</p>
-                <p><strong>E-Mail:</strong> <a href="mailto:support@klemp-roeder.de" style="color: var(--secondary); text-decoration: none; font-weight: 500;">support@klemp-roeder.de</a></p>
+                <p><strong>E-Mail:</strong> <a href="mailto:kontakt@klemp-roeder.de" style="color: var(--secondary); text-decoration: none; font-weight: 500;">kontakt@klemp-roeder.de</a></p>
             </div>
         </section>
         
