@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Klemp & Röder GbR - Datenschutzerklärung">
+    <title>Klemp & Röder GbR - Datenschutzerklärung</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #ff6b35;
+            --primary-light: #ff8c61;
+            --secondary: #4ecdc4;
+            --bg: #1a1d29;
+            --bg-card: #242837;
+            --text: #ffffff;
+            --text-muted: #a8b2d1;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a1d29 0%, #242837 100%);
+            padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem);
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1), transparent 70%);
+            top: -200px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem);
+        }
+        
+        .content {
+            background: var(--bg-card);
+            padding: clamp(2rem, 4vw, 3rem);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .content h2 {
+            color: var(--text);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 600;
+        }
+        
+        .content h2:first-child {
+            margin-top: 0;
+        }
+        
+        .content h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: clamp(20px, 3vw, 28px);
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            margin-right: 1rem;
+            vertical-align: middle;
+            border-radius: 2px;
+        }
+        
+        .content h3 {
+            color: var(--text);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 600;
+        }
+        
+        .content p {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        
+        .content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+        }
+        
+        .content ul li {
+            margin-bottom: 0.5rem;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            line-height: 1.8;
+        }
+        
+        .content strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+        
+        .content a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .content a:hover {
+            color: var(--primary);
+        }
+        
+        .highlight-box {
+            background: rgba(255, 107, 53, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        footer {
+            background: var(--bg-card);
+            color: var(--text-muted);
+            padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 8vw, 8rem);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .footer-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Datenschutzerklärung</h1>
+    </header>
+    
+    <div class="container">
+        <div class="content">
+            <h2>1. Datenschutz auf einen Blick</h2>
+            
+            <h3>Allgemeine Hinweise</h3>
+            <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+            
+            <h3>Datenerfassung auf dieser Website</h3>
+            <p><strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong></p>
+            <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
+            
+            <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
+            <p>Diese Website ist eine rein statische Website, die über GitHub Pages gehostet wird. Es werden keine Daten durch uns aktiv erfasst. GitHub als Hosting-Anbieter erfasst automatisch bestimmte technische Daten.</p>
+            
+            <h2>2. Hosting</h2>
+            
+            <h3>GitHub Pages</h3>
+            <p>Diese Website wird auf Servern von GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA gehostet. GitHub kann beim Besuch dieser Website automatisch technische Informationen erfassen, einschließlich Ihrer IP-Adresse.</p>
+            
+            <p>Die Nutzung von GitHub Pages erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer zuverlässigen Darstellung unserer Website.</p>
+            
+            <p>Weitere Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a></p>
+            
+            <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
+            
+            <h3>Datenschutz</h3>
+            <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+            
+            <div class="highlight-box">
+                <p><strong>Wichtig:</strong> Diese Website ist rein statisch aufgebaut. Es werden keine Cookies gesetzt, keine Analysetools verwendet und keine Formulare verarbeitet. Die einzige Datenverarbeitung erfolgt durch das technisch notwendige Hosting bei GitHub Pages.</p>
+            </div>
+            
+            <h3>Hinweis zur verantwortlichen Stelle</h3>
+            <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+            
+            <p>
+                <strong>Klemp & Röder GbR</strong><br>
+                c/o MDC Management#3703<br>
+                Welserstraße 3<br>
+                87463 Dietmannsried<br>
+                Deutschland
+            </p>
+            
+            <p>
+                Telefon: +49 (0) 152 07440654<br>
+                E-Mail: kontakt@klemp-roeder.de
+            </p>
+            
+            <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>
+            
+            <h3>Speicherdauer</h3>
+            <p>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen).</p>
+            
+            <h3>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h3>
+            <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+            
+            <h3>Recht auf Datenübertragbarkeit</h3>
+            <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen.</p>
+            
+            <h3>Auskunft, Löschung und Berichtigung</h3>
+            <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.</p>
+            
+            <h3>Recht auf Einschränkung der Verarbeitung</h3>
+            <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:</p>
+            
+            <ul>
+                <li>Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+                <li>Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.</li>
+                <li>Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+                <li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+            </ul>
+            
+            <h2>4. Datenerfassung auf dieser Website</h2>
+            
+            <h3>Server-Log-Dateien</h3>
+            <p>Der Provider der Seiten (GitHub) erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+            
+            <ul>
+                <li>Browsertyp und Browserversion</li>
+                <li>Verwendetes Betriebssystem</li>
+                <li>Referrer URL</li>
+                <li>Hostname des zugreifenden Rechners</li>
+                <li>Uhrzeit der Serveranfrage</li>
+                <li>IP-Adresse</li>
+            </ul>
+            
+            <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen.</p>
+            
+            <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website – hierzu müssen die Server-Log-Files erfasst werden.</p>
+            
+            <h2>5. Externe Links</h2>
+            
+            <h3>Links zu App Stores</h3>
+            <p>Diese Website enthält Links zu externen Plattformen (Apple App Store, Google Play Store). Wenn Sie auf diese Links klicken, verlassen Sie unsere Website. Wir haben keinen Einfluss auf die Datenverarbeitung durch diese Drittanbieter. Bitte informieren Sie sich auf den jeweiligen Plattformen über deren Datenschutzpraktiken.</p>
+            
+            <h2>6. Änderung der Datenschutzerklärung</h2>
+            
+            <p>Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+            
+            <p><strong>Stand:</strong> Januar 2025</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Klemp & Röder GbR. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="/">Startseite</a>
+            <a href="/Impressum">Impressum</a>
+        </div>
+    </footer>
+</body>
+</html>
