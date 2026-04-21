@@ -142,7 +142,7 @@
 </header>
 
   <main>
-    <p class="date">Last updated: 27.12.2025</p>
+    <p class="date">Last updated: 21.4.2026</p>
 
     <section>
       <h2>1. Introduction</h2>
@@ -270,6 +270,10 @@
         <li><strong>FCM token:</strong> Token including creation and update timestamps, used only for push notifications</li>
       </ul>
 
+      <p><strong>Note:</strong>
+      Account data such as username, nickname, description, number of friends, number of ratings, number of posts, profile picture, and possibly other information are public and visible to all users.
+      </p>
+
       <h4>Content and activities</h4>
       <ul>
         <li><strong>Posts:</strong> Uploaded product images, descriptions, comments, stated prices and currency, number of received comments, average rating, ratings including userId, creation date</li>
@@ -287,6 +291,22 @@
         <li><strong>Friend requests:</strong> Sent and received requests including timestamps</li>
         <li><strong>Blocked users:</strong> List of blocked users (user IDs)</li>
       </ul>
+
+      <h4>Groups and Community</h4>
+      <ul>
+        <li><strong>Group memberships:</strong> List of groups you have joined (group IDs)</li>
+        <li><strong>Group content:</strong> Posts created in groups with all associated data (images, descriptions, ratings, comments)</li>
+        <li><strong>Group activities:</strong> Timestamps of joining groups and activities within groups</li>
+        <li><strong>Group statistics:</strong> Number of posts in groups, interactions within groups</li>
+        <li><strong>Created groups:</strong> Groups created by you (group IDs, name, description, creation date)</li>
+        <li><strong>Group administration:</strong> Roles and permissions in groups</li>
+      </ul>
+
+      <p>
+        <strong>Important notice regarding public groups:</strong> 
+        All content you post in public groups (images, texts, ratings, comments) is visible to all app users 
+        and can be viewed by anyone. Do not share any personal, sensitive, or confidential information in public groups.
+      </p>
 
       <p>
         <strong>Purpose:</strong> These data are necessary to provide the core functionality of the app, including creating and managing content, interacting with other users, and personalizing your profile. Please note that all this data may be publicly accessible. You should not provide or share any personal information.
@@ -357,6 +377,35 @@
         and existing suggestions will be deleted.
       </p>
 
+      <h3>3.8 Data storage and server locations</h3>
+      <p>
+        All user data, content, and application data are stored using Google Firebase and Google Cloud services.
+      </p> 
+        
+      <p>
+        <strong>Primary server location:</strong> Germany (Google Firebase data center in Frankfurt am Main)
+      </p>
+
+      <p>
+        <strong>Important information about data processing:</strong><br>
+        While the primary data storage location is in Germany (EU), Google LLC may access infrastructure 
+        outside the EU for maintenance, backup, and operational purposes. This may include access from the USA 
+        or other locations where Google operates data centers.
+      </p>
+
+      <p>
+        Data transfers to the USA are based on the <strong>EU-U.S. Data Privacy Framework</strong>, 
+        which ensures an adequate level of data protection. Additionally, we have concluded a 
+        <strong>Data Processing Agreement (DPA)</strong> according to Art. 28 GDPR with Google LLC, 
+        which ensures compliance with European data protection standards.
+      </p>
+
+      <p>
+        For more information about Google's data processing practices, please refer to the 
+        <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> and 
+        <a href="https://cloud.google.com/terms/data-processing-addendum" target="_blank">Google Cloud Data Processing Addendum</a>.
+      </p>
+
     </section>
 
     <section>
@@ -364,6 +413,8 @@
       <ul>
         <li>Operation and maintenance of the app</li>
         <li>Error analysis and improvement</li>
+        <li>Provision of community and group features</li>
+        <li>Enabling exchange in public groups</li>
         <li>Usage statistics and advertising</li>
         <li>Compliance with legal obligations</li>
         <li>Proof of consent and policy versions</li>
@@ -445,7 +496,7 @@
         <li>Firebase Analytics: opt-out via app or device settings</li>
         <li>AdMob: personalized ads can be disabled in app or device settings</li>
         <li>CCPA: email <a href="mailto:support@klemp-roeder.com">support@klemp-roeder.com</a> for opt-out requests</li>
-        <li>Consents (e.g., analytics, crashlytics, ads) can be changed or withdrawn at any time in the app settings.</li>
+        <li>Consents (e.g., analytics, crashlytics, ads, features) can be changed or withdrawn at any time in the app settings.</li>
       </ul>
     </section>
 
